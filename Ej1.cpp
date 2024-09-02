@@ -6,40 +6,34 @@ original. Ej: listaOriginal: 1->2->3->4->5->6->7->8->9->10 con p=5 Por pantalla 
 #include "Lista/Lista.h"
 using namespace std;
 
-int main() {
-    cout << "Ejercicio 02/01 Listas " << endl;
+void print(Lista <int> lista1, int c);
 
-    Lista<int> Lista1;
-    int n, d, p;
+int main(){
+    Lista <int> lista1;
+    int a,b,c;
 
-    cout<<"Ingrese el tamaño de la Lista1: ";
-    cin>>n;
+    cout<<"ingrese el tamanio de la lista: ";
+    cin>>a;
 
-    for (int i = 0; i < n; i++) {
-        cout<<"Ingrese el valor de la lista en la posicion: "<<i<<endl;
-        cin>>d;
-        Lista1.insertarUltimo(d);
+    for(int i=0; i<a; i++){
+        cout<<"Ingrese el valor de la posicion:  "<<i<<endl;
+        cin>>b;
+        lista1.insertarUltimo(b);
     }
+    cout<<"Ingrese a partir de que numero quiere ver la lista: ";
+    cin>>c;
 
-    cout<<"Ingrese la posicion desde donde desea imprimir la Lista1: "<<endl;
-    cin>>p;
-
-    printLista(Lista1, p);
-
+    print(lista1,c);
     return 0;
 }
 
-void printLista(Lista<int>& lista, int p) {
-    int tamanio = lista.getTamanio();//AVERIGUO EL TAMAÑO DE LA LISTA
-
-    //CONTROL
-    if (p >= tamanio || p < 0) {
-        cout << "La posición " << p << " está fuera de los límites de la lista." << endl;
-        return;
+void print(Lista <int> lista1, int c){
+    int t= lista1.getTamanio();
+    if(c>t || c<0){
+        cout<<"tamano incorrecto\n\n";
     }
 
-    for (int i = p; i < tamanio; i++) {
-        cout << lista.getDato(i) << "->";
+    for(int i=c;i<t;i++){
+        cout<<lista1.getDato(i)<<"-->";
     }
-    cout << "NULL" << endl;
 }

@@ -64,6 +64,7 @@ int main() {
 
     do {
         paginaActual(historial, posicionActual);
+        cout<<endl;
         mostrarMenu();
         cout << "Seleccione una opcion: ";
         cin >> opcion;
